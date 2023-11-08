@@ -13,10 +13,7 @@
   },
   "scripts": {
     "test": "npx jest arabicToRoman.test.js",
-    "start": "node app",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "build": "npm run build"
+    "start": "node app"
   },
   "keywords": [],
   "author": "",
