@@ -11,7 +11,7 @@ app.listen(port, () => {
   console.log(`Serveur en écoute sur le port ${port}`);
 });
 
-function arabicToRoman(number) {
+module.exports = function arabicToRoman(number) {
   if (isNaN(number) || number < 1 || number > 3999) {
     throw new Error('Le nombre doit être compris entre 1 et 3999.');
   }
@@ -85,7 +85,8 @@ app.post('/reverse', (req, res) => {
   }
 });
 
-function romanToArabic(roman) {
+module.exports = function romanToArabic(roman) {
+  const validRomanCharacters = 'IVXLCDM';
   const romanNumerals = {
     M: 1000,
     CM: 900,
@@ -101,6 +102,12 @@ function romanToArabic(roman) {
     IV: 4,
     I: 1,
   };
+
+  for (const char of roman) {
+    if (!validRomanCharacters.includes(char)) {
+      throw new Error('Le contenu doit être des chiffres romains valides');
+    }
+  }
 
   let arabic = 0;
   let currentIndex = 0;
@@ -121,7 +128,7 @@ function romanToArabic(roman) {
   }
 
   if (arabicToRoman(arabic) !== roman) {
-    return null;
+    throw new Error('Chiffre romain invalide.');
   }
 
   return arabic;
