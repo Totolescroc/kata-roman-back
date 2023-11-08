@@ -61,5 +61,3 @@ app.post('/convert', (req, res) => {
     res.status(400).json({ error: error.message });
   }
 });
-
-app.use(express.static(__dirname + '/frontend'));
