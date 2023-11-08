@@ -46,15 +46,14 @@ function romanToArabic(roman) {
 }
 
 
-  test('Conversion de 1 à I', () => {
+  test('Conversion de I à 1', () => {
     expect(romanToArabic('I')).toBe(1);
   });
   
-  test('Conversion de 9 à IX', () => {
+  test('Conversion de IX à 9', () => {
     expect(romanToArabic('IX')).toBe(9);
   });
   
-  test('Conversion de 3999 à MMMCMXCIX', () => {
+  test('Conversion de MMMCMXCIX à 3999', () => {
     expect(romanToArabic('MMMCMXCIX')).toBe(3999);
   });
-  
