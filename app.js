@@ -6,7 +6,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
-const port = 3001;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Serveur en écoute sur le port ${port}`);
 });
