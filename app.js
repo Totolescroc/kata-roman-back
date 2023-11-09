@@ -6,12 +6,13 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
+//pour les runner le pc env
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Serveur en écoute sur le port ${port}`);
 });
 
-function arabicToRoman(number) {
+module.exports = function arabicToRoman(number) {
   if (isNaN(number) || number < 1 || number > 3999) {
     throw new Error('Le nombre doit être compris entre 1 et 3999.');
   }
@@ -55,6 +56,7 @@ app.post('/convert', (req, res) => {
 
     const arabic = parseInt(inputNumber);
     const roman = arabicToRoman(arabic);
+    
 
     res.status(200).json({ roman });
   } catch (error) {
@@ -85,7 +87,7 @@ app.post('/reverse', (req, res) => {
   }
 });
 
-function romanToArabic(roman) {
+module.exports = function romanToArabic(roman) {
   const validRomanCharacters = 'IVXLCDM';
   const romanNumerals = {
     M: 1000,
@@ -127,9 +129,9 @@ function romanToArabic(roman) {
     }
   }
 
-  if (arabicToRoman(arabic) !== roman) {
-    throw new Error('Chiffre romain invalide.');
-  }
+  // if (arabicToRoman(arabic) !== roman) {
+  //   throw new Error('Chiffre romain invalide.');
+  // }
 
   return arabic;
 }
@@ -146,12 +148,13 @@ app.get('/getRomanValue/:roman', (req, res) => {
     }
 
     const arabic = romanToArabic(inputRoman);
-
+    res.log(response);
 
     cachedResults[inputRoman] = arabic;
 
     res.status(200).json({ arabic });
   } catch (error) {
+    res.log(response);
     res.status(400).json({ error: error.message });
   }
 });
