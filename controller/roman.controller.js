@@ -1,4 +1,4 @@
-module.exports.romanToArabic = async (roman) => {
+module.exports.romanToArabic = (roman) => {
     const validRomanCharacters = 'IVXLCDM';
     const romanNumerals = {
       M: 1000,

@@ -1,4 +1,4 @@
-module.exports.arabicToRoman = async (number) => {
+module.exports.arabicToRoman =  (number) => {
     if (isNaN(number) || number < 1 || number > 3999) {
       throw new Error('Le nombre doit être compris entre 1 et 3999.');
     }
