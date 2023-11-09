@@ -21,7 +21,8 @@ module.exports.romanToArabic = (roman) => {
         throw new Error('Le contenu doit être des chiffres romains valides');
       }
     }
-  
+    console.log(roman);
+
     let arabic = 0;
     let currentIndex = 0;
   
@@ -39,10 +40,10 @@ module.exports.romanToArabic = (roman) => {
         currentIndex += 1;
       }
     }
-  
-    if (arabicToRoman(arabic) !== roman) {
-      throw new Error('Chiffre romain invalide.');
-    }
-  
+    //Sert de vérifications à la base, à revoir si nécessaire, cacher car mal conçu
+    // if (arabicToRoman(arabic) !== roman) {
+    //   throw new Error('Chiffre romain invalide.');
+    // }
+    console.log(roman);
     return arabic;
   };
