@@ -12,7 +12,7 @@ app.listen(port, () => {
   console.log(`Serveur en écoute sur le port ${port}`);
 });
 
-module.exports = function arabicToRoman(number) {
+function arabicToRoman(number) {
   if (isNaN(number) || number < 1 || number > 3999) {
     throw new Error('Le nombre doit être compris entre 1 et 3999.');
   }
