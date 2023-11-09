@@ -1,4 +1,4 @@
-const romanToArabic = require('./app');
+const romanToArabic = require('./controller/roman.controller').romanToArabic;
 
 
   test('Conversion de I à 1', () => {
