@@ -23,5 +23,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+       before_script: chmod 0777 ./node_modules/.bin/jest
     - run: npm test
     - run: npm run testreverse
+
