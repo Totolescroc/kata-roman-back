@@ -129,9 +129,9 @@ module.exports = function romanToArabic(roman) {
     }
   }
 
-  // if (arabicToRoman(arabic) !== roman) {
-  //   throw new Error('Chiffre romain invalide.');
-  // }
+  if (arabicToRoman(arabic) !== roman) {
+    throw new Error('Chiffre romain invalide.');
+  }
 
   return arabic;
 }
