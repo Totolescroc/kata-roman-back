@@ -133,3 +133,25 @@ function romanToArabic(roman) {
 
   return arabic;
 }
+//////////////////////////////////////
+const cachedResults = {};
+
+app.get('/getRomanValue/:roman', (req, res) => {
+  try {
+    const inputRoman = req.params.roman.toUpperCase();
+
+    if (cachedResults[inputRoman]) {
+      res.status(200).json({ arabic: cachedResults[inputRoman] });
+      return;
+    }
+
+    const arabic = romanToArabic(inputRoman);
+
+
+    cachedResults[inputRoman] = arabic;
+
+    res.status(200).json({ arabic });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
