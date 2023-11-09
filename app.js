@@ -87,7 +87,7 @@ app.post('/reverse', (req, res) => {
   }
 });
 
-module.exports = function romanToArabic(roman) {
+function romanToArabic(roman) {
   const validRomanCharacters = 'IVXLCDM';
   const romanNumerals = {
     M: 1000,
